@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var numeros = [];
+        var numeroIngresado = 0;
+        var sum = 0;
+
+        do {
+            var num = prompt("Ingrese un numero")
+            validarGuardar(num)
+        } while (num != "Salir")
+
+        alert("El promedio es: " + promedio())
+
+
+        function promedio() {
+            return sum / numeros.length
+        }        
+
+        function validarGuardar(pepe) {
+            var numeroParseado = Number(pepe);
+            if (numeroParseado < 10) { 
+                numeros.push(numeroParseado);
+                sum = sum + numeroParseado;
+            }
+        }
+    </script>
+</body>
+
+</html>

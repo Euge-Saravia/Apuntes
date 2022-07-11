@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Ejemplo sin hacer  arrow function 
+        let lista = [20, "texto", true, 10]
+        function promedio(array) {
+            let sum = 0;
+            let cant = 0;
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (typeof element === "number") {
+                    sum = sum + element;
+                    cant = cant + 1;
+                }
+            }
+            return sum / cant;
+        }
+
+        alert(promedio(lista));
+
+        //Ejemplo con arrow function 
+
+        let lista = [20, "texto", true, 10]
+        let promedio = array => {
+            let sum = 0;
+            let cant = 0;
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (typeof element === "number") {
+                    sum = sum + element;
+                    cant = cant + 1;
+                }
+            }
+            return sum / cant;
+        }
+
+        alert(promedio(lista));
+
+    </script>
+</body>
+
+</html>

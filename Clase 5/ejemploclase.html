@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class Animals {
+        //     constructor(raza, nombre) {
+        //         this.raza = raza;
+        //         this.nombre = nombre;
+        //     }
+        //     caminar() {
+        //         return "El animal de raza: " + this.raza + " " + "puede caminar";
+        //     }
+        // }
+
+        // let raza = prompt("ingrese una raza");
+        // let nombre = prompt("Ingrese un nombre");
+
+        // let animal = new Animals(raza, nombre);
+        // console.log(animal.caminar());
+
+        // //Ejercicio que se hizo entre todos(yo lo hice sola antes de verlo en la grabación)
+        // class People {
+        //     constructor(nombre, apellido, edad) {
+        //         this.nombre = nombre;
+        //         this.apellido = apellido;
+        //         this.edad = edad;
+        //     }
+        //     fullName() {
+        //         return "El nombre completo es " + this.nombre + " " + this.apellido;
+        //     }
+        //     esMayor() {
+        //         if (this.edad > 18) {
+        //             return "Ok es mayor"
+        //         } else {
+        //             return "No es mayor de edad"
+        //         }
+        //     }
+        // }
+
+        // let nombre = prompt("ingrese un nombre");
+        // let apellido = prompt("ingrese un apellido");
+        // let edad = parseInt(prompt("ingrese la edad"));
+
+        // let persona = new People(nombre, apellido, edad);
+        // console.log(persona.fullName());
+        // console.log(persona.esMayor());
+
+        // console.log(persona);
+
+
+        // //ejercicio 1 de clase 
+        // class Perro {
+        //     constructor(nombre, raza, color, estado_adopcion) {
+        //         this.nombre = nombre;
+        //         this.raza = raza;
+        //         this.color = color;
+        //         this.estado_adopcion = estado_adopcion;
+        //     }
+
+        //     get getEstado() {
+        //         return this.estado_adopcion;
+        //     }
+
+        //     set setEstado(estado_adopcion) {
+        //         this.estado_adopcion = estado_adopcion;
+        //     }
+        // }
+
+        // let dog = new Perro("Teo", "Labrador", "Negro", "Adoptado");
+
+        // dog.getEstado;
+        // //le asigna un nuevo valor a estado_adopción 
+        // dog.setEstado = "En adopción"
+
+        // ejericio 2 de clase 
+        class Perro {
+            constructor(nombre, raza, estado_adopcion) {
+                this.nombre = nombre;
+                this.raza = raza;
+                this.estado_adopcion = estado_adopcion;
+            }
+        }
+
+        //     get getEstado() {
+        //         return this.estado_adopcion;
+        //     }
+
+        //     set setEstado(estado_adopcion) {
+        //         this.estado_adopcion = estado_adopcion;
+        //     }
+        // }
+
+        let perritos = [];
+
+        do {
+            let nombre = prompt("Ingrese Nombre");
+            let raza = prompt("Ingrese Raza");
+            let estado = prompt("Ingrese estado_adopcion");
+            let dog = new Perro(nombre, raza, estado);
+            perritos.push(dog);
+        } while (!window.confirm("Quiere salir?"));
+
+        console.log(perritos);
+
+        const adoptados = [];
+        const en_proceso = [];
+        const en_adopcion = [];
+
+        // for (let i = 0; i < perritos.length; i++) {
+        //     if (perritos[i].estado_adopcion == "Adoptado") {
+        //         adoptados.push(perritos[i]);
+        //     } else if (perritos[i].estado_adopcion == "En Proceso") {
+        //         en_proceso.push(perritos[i]);
+        //     } else {
+        //         en_adopcion(perritos[i]);
+        //     }
+        // }
+
+        // for (const perrito of perritos) {
+        //     if (perrito.estado_adopcion == "Adoptado") {
+        //         adoptados.push(perrito);
+        //     } else if (perrito.estado_adopcion == "En Proceso") {
+        //         en_proceso.push(perrito);
+        //     } else {
+        //         en_adopcion(perrito);
+        //     }
+        // }
+
+        console.log("Perros Adoptados");
+        console.log(perritos.filter(perrito => perrito.estado_adopcion == "Adoptado"));
+        
+        console.log("Perros En adopcion");
+        console.log(en_adopcion);
+        
+        console.log("Perros En proceso");
+        console.log(en_proceso);
+    </script>
+</body>
+
+</html>

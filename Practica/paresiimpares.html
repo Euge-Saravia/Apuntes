@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var numerosPares = []
+        var numerosImpares = []
+
+        do {
+            var num = parseInt(prompt("Ingrese un numero"))
+            array(num);
+        } while (num != 0)
+
+        comparar()
+
+        function comparar () {
+            if (numerosPares.length > numerosImpares.length) {
+                alert("Los numeros pares son mas")
+            }else if (numerosPares.length < numerosImpares.length) {
+                alert("Los numeros impares son mas")
+            } else {
+                alert("Misma cantidad pares e impares")
+            }
+        }
+
+        function array(numero) {
+            var numeroParseado = numero
+            if (numeroParseado % 2 == 0) {
+                numerosPares.push(numeroParseado)
+
+            } else {
+                numerosImpares.push(numeroParseado)
+            }
+        }
+    </script>
+</body>
+
+</html>

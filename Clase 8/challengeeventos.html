@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Events</title>
+</head>
+
+<body>
+    <input id="input" type="text">
+    <button id="btn">Click Me</button>
+    <p id="text"></p>
+
+</body>
+
+<script>
+
+    // te devuelve un alert con lo que dice el input + hola 
+    /* let btn = document.getElementById("btn");
+  
+      btn.addEventListener("click", add);
+  
+      function add(params) {
+          let input = document.getElementById("input");
+          let one = input.value;
+          let saludo = "Hola: " + one;
+          alert(saludo);
+      }*/
+
+    // si no se llena el input pasan cosas 
+
+    let btn = document.getElementById("btn");
+    let input = document.getElementById("input");
+    btn.addEventListener("click", add);
+    input.addEventListener("change", reset);
+
+    function add(e) {
+        console.log(e);
+        if (input.value) {
+            let one = input.value;
+            let saludo = "Hola: " + one;
+            alert(saludo);
+        } else {
+            input.style.backgroundColor = "red";
+            alert("No escribiste nada");
+        }
+
+    }
+
+    function reset(e) {
+        console.log(e);
+        let i = e.target;
+        if (i.value) {
+            i.style.backgroundColor = "white";
+        }
+    }
+</script>
+
+</html>

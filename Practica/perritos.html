@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Perro {
+            constructor(nombre, edad, peso, raza, color, tamaño, estadoDeAdopcion){
+                this.nombre = nombre;
+                this.edad = edad;
+                this.peso = peso;
+                this.raza = raza;
+                this.color = color;
+                this.tamaño = tamaño;
+                this.estadoDeAdopcion = estadoDeAdopcion;
+            }
+
+            informarEstadoAdopcion() {
+                return this.estadoDeAdopcion;
+            }
+            cambiarEstadoAdopcion (nuevoEstado) {
+               this.estadoDeAdopcion = nuevoEstado
+            }
+        }
+
+        var perroPepito = new Perro("Pepito", 33, 65, "Collie", "Negro", "Mediano", "En Adopcion")
+
+        console.log(perroPepito.informarEstadoAdopcion());
+
+    </script>
+</body>
+</html>

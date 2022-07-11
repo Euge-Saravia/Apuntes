@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // ejercicio de clase 
+        // let users = ["Pepe", "Juana", "Euge", "Matias"]
+        // function addUser() {
+        //     let userName = prompt("ingrese un usuario");
+        //     try {
+        //         for (let i = 0; i < users.length; i++) {
+        //             if (userName === users[i]) {
+        //                 throw new Error("El usuario ya existe");
+        //             }
+        //         }
+        //         users.push(userName);
+        //         alert("Bienvenido nuevo usuario");
+        //     } catch (error) {
+        //         alert(error);
+        //     }
+        // }
+        //ejercicio 2 de clase 
+
+        let users = [
+            {
+                nombre: 'Moises',
+                apellido: 'Ruiz Diaz',
+                mail: 'moises@acamica.com',
+                user: 'moi',
+                pass: 'moi123',
+                activo: true
+            },
+            {
+                nombre: 'Luciana',
+                apellido: 'Lauga',
+                mail: 'luciana@acamica.com',
+                user: 'lu',
+                pass: 'lu123',
+                activo: true
+            },
+            {
+                nombre: "Girlesa",
+                apellido: 'Quintero',
+                mail: 'girlesa@acamica.com',
+                user: 'gir',
+                pass: 'gir123',
+                activo: true
+            }
+        ];
+        let validator = () => {
+            let user = prompt("ingrese su usuario");
+            let pass = prompt("ingrese su contraseña");
+            let success = false;
+            try {
+                for (let i = 0; i < users.length; i++) {
+
+                    if (users[i].user === user && users[i].pass === pass && users[i].activo === true) {
+                        alert("Bienvenido usuario valido");
+                        success = true;
+                    }
+                    // else{
+                    //     throw new Error("Usted no es un usuario valido");
+                    // }
+                }
+
+                if(success === false) {
+                    throw new Error("Usted no es un usuario valido");
+                }
+            } catch (error) {
+                alert(error);
+            }
+        }
+
+        validator();
+
+    </script>
+
+</body>
+
+</html>

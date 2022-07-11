@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mayor = 18;
+        let suma = 0;
+        let edad;
+        do {
+            edad = parseInt(prompt("ingrese su edad"));
+            validarEdad (edad)
+        } while (edad !=0);
+
+        function validarEdad (edad){
+            if (edad > mayor) {
+               suma++;
+                return true;
+            }else {
+                return false;
+            }
+        }
+    </script>
+    
+</body>
+</html>

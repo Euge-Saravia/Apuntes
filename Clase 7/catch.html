@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let users = ["Pepe", "Juana","Carla","Matias"];
+function addUser(){
+    let userName = prompt("Ingrese un nuevo usuario");
+    try{
+       for(let i=0; i< users.length; i++){
+          if(userName === users[i]){
+              throw new Error ("Este usuario ya existe");
+          }
+       }
+      users.push(userName);
+      alert("Bienvenido: "+ userName);
+    }catch (error){
+      alert(error)
+    }
+}
+
+    </script>
+</body>
+</html>

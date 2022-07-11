@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = [
+        {
+            nombre: "Moises",
+            apellido: "Ruiz Diaz",
+            mail: "moises@acamica.com",
+            user: "moi",
+            pass: "1234",
+            activo: true
+        },
+        {
+            nombre: "Luciana",
+            apellido: "Lauga",
+            mail: "luciana@acamica.com",
+            user: "lu",
+            pass: "lu123",
+            activo: true
+        },
+        {
+            nombre: "Girlesa",
+            apellido: "Quintero",
+            mail: "girlesa@acamica.com",
+            user: "gir",
+            pass: "gir123",
+            activo: true
+
+        }
+        ];
+        let validator = () => {
+            let user = prompt("Ingrese su usuario");
+            let pass = prompt("Ingrese su contraseña");
+
+            try {
+                for (let i = 0; i < array.length; i++) {
+                  if (user[i].user === user && user[i].pass === pass && user[i].activo === true) {
+                    alert("Bienvenido");
+                  }
+                    else {
+                        throw new Error ("Acceso denegado");
+                    }
+                }
+            } catch (error) {
+                alert(error);
+            }
+        } 
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

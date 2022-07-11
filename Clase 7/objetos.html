@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class perro {
+            constructor (raza, edad, color, estadoAdopcion){
+                this.raza = raza;
+                this.edad = edad; 
+                this.color = color;
+                this.estadoAdopcion = estadoAdopcion;
+            }
+            informaEstado(){
+                return "El estado de adopcion es: " + this.estadoAdopcion;
+            }
+            modificaEstado(estadoAdopcion){
+                this.estadoAdopcion = estadoAdopcion;
+                return "El nuevo estado de adopcion es: " + this.estadoAdopcion;
+            }
+        }
+        
+        let perrera = [];
+        do {
+        let raza = prompt("Ingrese la raza del perro");
+        let edad = parseInt(prompt("Ingrese la edad del perro"));
+        let color = prompt("Ingrese el color");
+        let estadoAdopcion = prompt("Ingrese el estado");
+        let perro1 = new perro (raza, edad, color, estadoAdopcion);
+        
+        perrera.push(perro1);
+
+        }while (window.confirm ("Desea seguir cargado"))
+        
+        for(let i = 0; i<perrera.lenght; i++){
+            if(perrera[i].estadoAdopcion == "en adopcion"){
+                console.log("Perro en adopcion");
+                console.log(perrera[i]);
+            }else if (perrera[i].estadoAdopcion == "proceso adopcion"){
+                console.log("perro en proceso");
+                console.log(perrera[i]);
+            } else (perrera[i].estadoAdopcion == "adoptado")}
+                console.log("perro adoptado");
+                console.log(perrera[i]);
+        
+
+
+
+
+    </script>
+</body>
+</html>

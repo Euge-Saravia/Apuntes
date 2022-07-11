@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Ejercicio 1
+        let numbers = [];
+        let num;
+
+        do {
+            num = prompt("ingrese un numero");
+            if (num != "stop") {
+                numbers.push(parseInt(num));
+            }
+        } while (num != "stop");
+
+        console.log(numbers);
+
+        // otra forma 
+
+        let new_array = [];
+        let numbers;
+
+        while (numbers != "stop") {
+            numbers = prompt("ingrese un numero");
+            if (numbers != "stop") {
+                new_array.push(parseInt(numbers));
+            }
+        }
+
+        console.log(new_array);
+
+
+        //Ejercicio 2 
+        var numPar = [];
+        var numImpar = [];
+        var ninguno = [];
+        while (opcion != "0") {
+            var opcion = prompt("Ingrese: ");
+            if (opcion !== "0") {
+                if (isNaN(opcion)) {
+                    ninguno.push(opcion);
+                } else {
+                    if (opcion % 2 == 0) { numPar.push(opcion); }
+                    else { numImpar.push(opcion); }
+                }
+            }
+        }
+        console.log(numPar);
+        console.log(numImpar);
+        console.log(ninguno);
+
+        //Ejercicio 3 
+        let numbers = [];
+        let datos;
+        let numeroAlto = 0;
+        let indiceAlto = 0;
+        let numeroBajo = 0;
+        let indiceBajo = 0;
+        do {
+            datos = parseInt(prompt("ingrese un numero"));
+            if (datos !== 0) {
+                numbers.push(datos);
+            }
+        } while (datos !== 0)
+
+        for (let i = 0; i < numbers.length; i++) {
+            const num = numbers[i];
+            if (num > numeroAlto) {
+                numeroAlto = num;
+                indiceAlto = i;
+            } else if (num < numeroBajo) {
+                numeroBajo = num;
+                indiceBajo = i;
+            }
+        }
+
+        numbers.splice(indiceAlto, 1);
+        numbers.splice(indiceBajo, 1);
+
+
+        //otra forma 
+        let numbers = [];
+        let datos;
+        let numeros;
+
+        do {
+            datos = parseInt(prompt("ingrese un numero"));
+            if (datos !== 0) {
+                numbers.push(datos);
+
+            }
+        } while (datos !== 0)
+
+        numbers.sort();
+        numbers.shift();
+        numbers.pop();
+
+        console.log(numbers);
+
+
+        //Ejercicio 3 otra alternativa (si el ususrio ingresa algo que no es un numero)
+
+        let numbers = [];
+        let datos;
+        let numeroAlto = 0;
+        let indiceAlto = 0;
+        let numeroBajo = 0;
+        let indiceBajo = 0;
+        do {
+            datos = parseInt(prompt("ingrese un numero"));
+            if (!isNaN(datos) && datos !== 0) {
+                numbers.push(datos);
+            }
+        } while (datos !== 0)
+
+        for (let i = 0; i < numbers.length; i++) {
+            const num = numbers[i];
+            if (num > numeroAlto) {
+                numeroAlto = num;
+                indiceAlto = i;
+            } else if (num < numeroBajo) {
+                numeroBajo = num;
+                indiceBajo = i;
+            }
+        }
+
+        //Ejercicio 4 
+        let arregloOriginal = [];
+        let datos;
+        let arregloDeArreglos = [];
+
+        do {
+            datos = prompt("Ingrese: ");
+            if (datos !== "0") {
+                arregloOriginal.push(datos);
+            }
+        } while (datos !== "0")
+
+        if (arregloOriginal.length % 3 === 2) {
+            arregloOriginal.shift();
+            arregloOriginal.pop();
+        } else if (arregloOriginal.length % 3 === 1) {
+            arregloOriginal.shift();
+        }
+
+
+        const LONGITUD_PEDAZOS = 3; // Partir en arreglo de 3
+        for (let i = 0; i < arregloOriginal.length; i += LONGITUD_PEDAZOS) {
+            let pedazo = arregloOriginal.slice(i, i + LONGITUD_PEDAZOS);
+            arregloDeArreglos.push(pedazo);
+        }
+        console.log("Arreglo de arreglos: ", arregloDeArreglos);
+
+        numbers.splice(indiceAlto, 1);
+        numbers.splice(indiceBajo, 1);
+    </script>
+</body>
+
+</html>

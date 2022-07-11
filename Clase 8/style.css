@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#enter {
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+#btn {
+    width: 25%;
+}
