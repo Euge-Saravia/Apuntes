@@ -1,0 +1,141 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: shadosintolight;
+    src: url("./Fuentes/Tipografias/ShadowsIntoLight-Regular.ttf");
+}
+
+@font-face {
+    font-family: opensanslight;
+    src: url("./Fuentes/Tipografias/OpenSansCondensed-Light.ttf");
+}
+
+@font-face {
+    font-family: opensans;
+    src: url("./Fuentes/Tipografias/OpenSansCondensed-LightItalic.ttf");
+}
+
+header img {
+    float: left;
+    margin-top: 10px;
+    margin-left: 16px;
+    width: 100px;
+    height: 100px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+
+header nav .menu ul {
+    background: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: auto;
+    position: absolute;
+    font-family: opensanslight;
+    font-size: 25px;
+    margin-top: 40px;
+    padding-right: 50px;
+}
+
+header nav .menu ul li {
+    padding-left: 20px;
+}
+
+header nav .menu li:hover {
+    color: #100e14;
+    text-decoration: line-through;
+}
+.maincontent {
+    margin-top: 180px;
+    display: flex;
+    background-color: ;
+}
+
+#titulo {
+    text-align: center;
+    font-size: 30px;
+}
+
+.principal p {
+    padding-left: 25px;
+    padding-top: 20px;
+    font-family: opensans;
+    font-size: 20px;
+}
+
+.imagewrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    position: relative;
+}
+.img {
+    width: 85%;
+}
+
+#sections {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 30px;
+}
+
+.imagecontainer {
+    padding-right: 20px;
+    width: calc(50% - 20px);
+}
+
+.imagecontainer img {
+    width: 100%;
+    padding: 15px;
+}
+
+.ladyboss{
+    display: none;
+}
+#sections .show.imagecontainer.ladyboss{
+    display: block;
+}
+.imagecontainer h2 {
+    font-family: opensans;
+    font-size: 35px;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.button {
+    width: 226px;
+    height: 56px;
+    font-family: opensans;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+    background-color: #00F3BB;
+    margin-bottom: auto;
+}
+.button:hover{
+    background-image: linear-gradient(225deg, #0000FE, #00F0B8);
+}
+.button:focus{
+    outline: none;
+}
+.frame {
+    border: 1px solid red;
+}

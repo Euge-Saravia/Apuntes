@@ -100,7 +100,7 @@ Las funciones de flecha introducen una sintaxis de cuerpo concisa o un retorno i
 const sum = (a, b) => a + b
 ``````
 
-## Omitir paréntesis alrededor de un solo parámetro
+### Omitir paréntesis alrededor de un solo parámetro
 
 Se pueden omitir los paréntesis alrededor de los párametros si este es uno solo. 
 
@@ -118,6 +118,8 @@ const greet = () => 'Hello!'
 
 greet()// Hello!
 ```````
+## Scope
+
 
 
 
