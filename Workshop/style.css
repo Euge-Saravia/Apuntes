@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8rem 1rem 0 1rem;
+}
+
+.header img{
+    width: 8rem;
+    height: 1rem;
+}
+
+#search{
+    width: 20rem;
+    border: 2px solid black;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+.nav ul{
+   list-style: none;
+   display: flex;
+   justify-content: space-around;
+   font-size: 1rem;
+   margin-top: 1.5rem;
+}
+
+#carrito{
+    display: none;
+}
+
+
+#carrito.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 15px;
+}
+
+#comprar{
+    width: 80px;
+    padding: 3px 10px 3px 10px;   
+    margin-bottom: 15px;
+}
+
+#vaciar-carrito{
+    width: 80px;
+    padding: 3px 10px 3px 10px;
+}
+
+.nodo-carrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-img{
+    width: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.card-body {
+    width: calc(25% - 2px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-lip{
+    width: 50%;
+    margin-top: 5px;
+}
+.card-title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-text{
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.btn{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-style: none;
+    border: 1px solid black;
+    font-size: 20px;
+    padding: 3px 10px;
+}

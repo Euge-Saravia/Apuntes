@@ -1,4 +1,4 @@
-// 1. Buscamos el boton y lo asignamos a la variable btn
+// 1. Buscamos el boton enviar y lo asignamos a la variable btn
 var btn = document.getElementById("btn");
 
 // 2. Asociamos el evento click a que ejecute el metodo hi()
