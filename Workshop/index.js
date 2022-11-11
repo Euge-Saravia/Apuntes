@@ -1,9 +1,11 @@
 class Producto {
-  constructor(titulo, imagen, precio) {
+  constructor(titulo, imagen, precio, cantidad) {
     this.titulo = titulo;
     this.imagen = imagen;
     this.precio = precio;
+    this.cantidad = cantidad || 0;
   }
+  
 }
 
 const productos = [
@@ -30,7 +32,6 @@ const container = document.getElementById("container");
 
 function renderizarProductos() {
   productos.forEach((info) => {
-    console.log(info);
     //Estructura
     const miNodoCardBody = document.createElement("div");
     miNodoCardBody.classList.add("card-body");
@@ -66,7 +67,7 @@ function renderizarProductos() {
 function addLocalStorge(event) {
   // PASOS:
   // Obtener el valor del carrito en el local storage
-  const carrito = JSON.parse(localStorage.getItem("Carrito"));
+  const carrito = getCarrito();
   // Obtener el titulo del producto que hicimos click, esta guardado en el attributo "producto"
   const productTitle = event.target.getAttribute("producto"); // productTitle = "lip-16"
   // Controlar si el carrito tiene algo adentro
@@ -79,21 +80,49 @@ function addLocalStorge(event) {
       (producto) => producto.titulo == productTitle
     );
 
+    const filtrado = filtrados[0];
+    const producto = new Producto(
+      filtrado.titulo,
+      filtrado.imagen,
+      filtrado.precio,
+      1
+    );
+
     // Agregarlo al array nuevo
-    labiales.push(filtrados[0]);
+    labiales.push(producto);
 
     // Guardar el valor en el local storage.
     localStorage.setItem("Carrito", JSON.stringify(labiales));
   } else {
-    // Si tiene -> Agregarle el producto que estoy clickeando
-    const filtrados = productos.filter(
-      (producto) => producto.titulo == productTitle
-    );
+    // Nos fijamos en el carrito si hay otro elemento igual
+    const hayUnoIgualEnElCarrito = carrito.some(producto => producto.titulo === productTitle);
 
-    carrito.push(filtrados[0]);
+    if (hayUnoIgualEnElCarrito) {
+      //Buscamos el producto repetido en el carrito y le vamos sumando la cantidad
+      const index = carrito.findIndex(producto => producto.titulo === productTitle);
+      carrito[index].cantidad++;
+    } else {
+      // Si tiene -> Agregarle el producto que estoy clickeando
+      const filtrados = productos.filter(
+        (producto) => producto.titulo == productTitle
+      );
+
+      const filtrado = filtrados[0];
+      const producto = new Producto(
+        filtrado.titulo,
+        filtrado.imagen,
+        filtrado.precio,
+        1
+      );
+
+      carrito.push(producto);
+    }
+
     // Guardar el valor nuevo de carrito en el local storage
     localStorage.setItem("Carrito", JSON.stringify(carrito));
   }
+
+  alert("Producto" + " " + productTitle + " " + "agregado con exito");
 
   // Re-generar el carrito
   //   const carritoHtml = document.getElementById("carrito-items");
@@ -101,27 +130,22 @@ function addLocalStorge(event) {
   renderizarCarrito();
 }
 
-function renderizarCarrito(params) {
+function renderizarCarrito() {
   let containerCarrito = document.getElementById("carrito-items");
   containerCarrito.innerHTML = "";
 
   //Traer los items del local storage
-  const carrito = JSON.parse(localStorage.getItem("Carrito"));
+  const carrito = getCarrito();
 
   if (carrito != null) {
     const carritoSinDuplicado = [...new Set(carrito)];
-
     //Renderizar carrito
     carritoSinDuplicado.forEach((info) => {
-// Cuenta el número de veces que se repite el producto
-const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-    // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
-    return itemId === item ? total += 1 : total;
-}, 0);
-
-
-
-
+      // Cuenta el número de veces que se repite el producto
+      // const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+      //     // ¿Coincide las id? Incremento el contador, en caso contrario lo mantengo
+      //     return itemId === info ? total += 1 : total;
+      // }, 0);
       //Div que contiene a cada elemento del array
       const miNodoCarrito = document.createElement("div");
       miNodoCarrito.classList.add("nodo-carrito");
@@ -136,7 +160,7 @@ const numeroUnidadesItem = carrito.reduce((total, itemId) => {
       //Agregamos el precio
       const miNodoCarritoPrecio = document.createElement("p");
       miNodoCarritoPrecio.classList.add("carrito-precio");
-      miNodoCarritoPrecio.textContent = `${divisa}${info.precio}`;
+      miNodoCarritoPrecio.textContent = `X ${info.cantidad} ${divisa}${info.precio * info.cantidad}`;
       //Insertamos
       miNodoCarrito.appendChild(miNodoCarritoImg);
       miNodoCarrito.appendChild(miNodoCarritoTitulo);
@@ -146,7 +170,31 @@ const numeroUnidadesItem = carrito.reduce((total, itemId) => {
   }
 }
 
-function vaciarCarrito(params) {
+let btnOrder = document.getElementById("listorder");
+btnOrder.addEventListener("click", ordenarCarrito);
+
+function ordenarCarrito() {
+  let order = getCarrito();
+
+  order.sort(function (valor1, valor2) {
+    if (valor1.precio < valor2.precio) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+
+  localStorage.setItem("Carrito", JSON.stringify(order));
+  renderizarCarrito();
+  console.log(order);
+}
+
+//Funcion que busca el carrito en el local storage, la uso cada vez que necesito traer la información
+function getCarrito() {
+  return JSON.parse(localStorage.getItem("Carrito"));
+}
+
+function vaciarCarrito() {
   // Borrar el localstorage
   localStorage.removeItem("Carrito");
   // Otra opcion:
