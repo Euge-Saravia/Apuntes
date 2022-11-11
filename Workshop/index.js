@@ -5,7 +5,6 @@ class Producto {
     this.precio = precio;
     this.cantidad = cantidad || 0;
   }
-  
 }
 
 const productos = [
@@ -95,11 +94,15 @@ function addLocalStorge(event) {
     localStorage.setItem("Carrito", JSON.stringify(labiales));
   } else {
     // Nos fijamos en el carrito si hay otro elemento igual
-    const hayUnoIgualEnElCarrito = carrito.some(producto => producto.titulo === productTitle);
+    const hayUnoIgualEnElCarrito = carrito.some(
+      (producto) => producto.titulo === productTitle
+    );
 
     if (hayUnoIgualEnElCarrito) {
       //Buscamos el producto repetido en el carrito y le vamos sumando la cantidad
-      const index = carrito.findIndex(producto => producto.titulo === productTitle);
+      const index = carrito.findIndex(
+        (producto) => producto.titulo === productTitle
+      );
       carrito[index].cantidad++;
     } else {
       // Si tiene -> Agregarle el producto que estoy clickeando
@@ -138,9 +141,11 @@ function renderizarCarrito() {
   const carrito = getCarrito();
 
   if (carrito != null) {
-    const carritoSinDuplicado = [...new Set(carrito)];
+    // const carritoSinDuplicado = [...new Set(carrito)];
+
+    let total = 0;
     //Renderizar carrito
-    carritoSinDuplicado.forEach((info) => {
+    carrito.forEach((info) => {
       // Cuenta el número de veces que se repite el producto
       // const numeroUnidadesItem = carrito.reduce((total, itemId) => {
       //     // ¿Coincide las id? Incremento el contador, en caso contrario lo mantengo
@@ -160,13 +165,23 @@ function renderizarCarrito() {
       //Agregamos el precio
       const miNodoCarritoPrecio = document.createElement("p");
       miNodoCarritoPrecio.classList.add("carrito-precio");
-      miNodoCarritoPrecio.textContent = `X ${info.cantidad} ${divisa}${info.precio * info.cantidad}`;
+      const totalLinea = info.precio * info.cantidad;
+      miNodoCarritoPrecio.textContent = `X ${info.cantidad} ${divisa}${totalLinea}`;
+
+      total += totalLinea;
+
       //Insertamos
       miNodoCarrito.appendChild(miNodoCarritoImg);
       miNodoCarrito.appendChild(miNodoCarritoTitulo);
       miNodoCarrito.appendChild(miNodoCarritoPrecio);
       containerCarrito.appendChild(miNodoCarrito);
     });
+
+    //Agrego el precio total a pagar
+    const miNodoCarritoPrecioTotal = document.createElement("p");
+    miNodoCarritoPrecioTotal.classList.add("precio-total");
+    miNodoCarritoPrecioTotal.textContent = `Precio Total ${divisa}${total}`;
+    containerCarrito.appendChild(miNodoCarritoPrecioTotal);
   }
 }
 
