@@ -31,6 +31,7 @@ const container = document.getElementById("container");
 
 function renderizarProductos() {
   productos.forEach((info) => {
+    console.log(typeof(info));
     //Estructura
     const miNodoCardBody = document.createElement("div");
     miNodoCardBody.classList.add("card-body");
@@ -146,6 +147,8 @@ function renderizarCarrito() {
     let total = 0;
     //Renderizar carrito
     carrito.forEach((info) => {
+      console.log(typeof(info));
+
       // Cuenta el número de veces que se repite el producto
       // const numeroUnidadesItem = carrito.reduce((total, itemId) => {
       //     // ¿Coincide las id? Incremento el contador, en caso contrario lo mantengo
